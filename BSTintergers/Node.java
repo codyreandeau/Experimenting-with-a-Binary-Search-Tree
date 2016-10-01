@@ -3,13 +3,11 @@ public class Node {
   private int data;
   private Node left;
   private Node right;
-  public int counter;
   
   public Node(int data) {
-    data = data;
-    left = null;
-    right = null;
-    counter = 1;
+    this.data = data;
+    this.left = null;
+    this.right = null;
   }
   
 public int getData() {
