@@ -11,7 +11,11 @@ public class Main {
     tree.insert(1);
     tree.insert(5);
     
+    System.out.println("Print items out using inOrder method:");
     tree.inOrder();
-    
+    System.out.println("Print items out using postOrder method:");
+    tree.postOrder();
+    System.out.println("Print items out using preOrder method:");
+    tree.preOrder();
   }
 }

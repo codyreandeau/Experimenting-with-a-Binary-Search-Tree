@@ -37,5 +37,39 @@ private void inOrder(Node node) {
  inOrder(node.getLeft()); 
  System.out.print(node.getData() + " "); 
  inOrder(node.getRight()); 
-} 
+}
+
+/** 
+ Prints the node values in the "postorder" order.  
+*/ 
+public void postOrder() { 
+ postOrder(root); 
+ System.out.println(); 
+}
+
+public void postOrder(Node node) { 
+   if (node == null) 
+   return;
+  
+  postOrder(node.getLeft());
+  postOrder(node.getRight());
+  System.out.print(node.getData() + " ");
+}
+
+/** 
+ Prints the node values in the "preorder" order.  
+*/ 
+public void preOrder() { 
+ preOrder(root); 
+ System.out.println(); 
+}
+
+public void preOrder(Node node) { 
+   if (node == null) 
+   return;
+  
+  System.out.print(node.getData() + " ");
+  preOrder(node.getLeft());
+  preOrder(node.getRight());
+}
 }
