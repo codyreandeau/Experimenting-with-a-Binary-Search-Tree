@@ -12,10 +12,14 @@ public class Main {
     tree.insert(5);
     
     System.out.println("Print items out using inOrder method:");
-    tree.inOrder();
+    tree.inOrder(BST.root);
+    System.out.println();
     System.out.println("Print items out using postOrder method:");
-    tree.postOrder();
+    tree.postOrder(BST.root);
+    System.out.println();
     System.out.println("Print items out using preOrder method:");
-    tree.preOrder();
+    tree.preOrder(BST.root);
+    System.out.println();
+    System.out.println("The max depth of the tree is: " + tree.maxDepth(BST.root));
   }
 }

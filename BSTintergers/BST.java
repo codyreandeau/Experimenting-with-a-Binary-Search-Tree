@@ -1,6 +1,6 @@
 public class BST {
  
-  public Node root;
+  public static Node root;
   
 /**
  * Method to insert a new node in order
@@ -25,12 +25,7 @@ public class BST {
 /** 
  Prints the node values in the "inorder" order.  
 */ 
-public void inOrder() { 
- inOrder(root); 
- System.out.println(); 
-}
-
-private void inOrder(Node node) { 
+public void inOrder(Node node) { 
  if (node == null) 
    return;
  
@@ -42,11 +37,6 @@ private void inOrder(Node node) {
 /** 
  Prints the node values in the "postorder" order.  
 */ 
-public void postOrder() { 
- postOrder(root); 
- System.out.println(); 
-}
-
 public void postOrder(Node node) { 
    if (node == null) 
    return;
@@ -59,11 +49,6 @@ public void postOrder(Node node) {
 /** 
  Prints the node values in the "preorder" order.  
 */ 
-public void preOrder() { 
- preOrder(root); 
- System.out.println(); 
-}
-
 public void preOrder(Node node) { 
    if (node == null) 
    return;
@@ -71,5 +56,23 @@ public void preOrder(Node node) {
   System.out.print(node.getData() + " ");
   preOrder(node.getLeft());
   preOrder(node.getRight());
+}
+
+/** 
+ Caclulates the number of nodes along the longest path
+ from root to farthest leaf
+*/ 
+public int maxDepth(Node node) {
+  if (node==null){
+    return 0;
+  }
+  int leftDepth = maxDepth(node.getLeft());
+  int rightDepth = maxDepth(node.getRight());
+  
+  if (leftDepth > rightDepth) {
+    return(leftDepth+1); 
+  }else{
+    return(rightDepth+1); 
+  }
 }
 }
