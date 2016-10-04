@@ -75,4 +75,20 @@ public int maxDepth(Node node) {
     return(rightDepth+1); 
   }
 }
+
+public int maxValue(Node node) {
+  Node current = node;
+  while(current.getRight() != null) {
+    current = current.getRight();
+  }
+  return current.getData();
+ }
+
+public int minValue(Node node) {
+  Node current = node;
+  while(current.getLeft() != null) {
+    current = current.getLeft();
+  }
+  return current.getData();
+ }
 }
