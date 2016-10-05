@@ -22,6 +22,47 @@ public class BST {
     return node;
   }
   
+  public boolean remove(int data) {
+    Node current = root;
+    Node parent = root;
+    boolean isLeft = true;
+    
+    while(current.getData() != data) {
+      parent = current;
+    
+      //Check if our node is on the left or right 
+      //of the tree
+      if(data < current.getData()) {
+        isLeft = true;
+        current = current.getLeft();
+      } else {
+          isLeft = false;
+          current = current.getRight();
+      }
+      
+      //If node was not found
+      if(current == null) {
+        return false;
+      }
+    }
+      
+    //If the node does not have any children
+      if (current.getLeft() == null && current.getRight() == null){
+        if (current == root) {
+          root = null;
+        } else if(isLeft) {
+          parent.setLeft(null);
+        } else {
+          parent.setRight(null);
+        }
+      }
+      
+      else if(current.getRight() == null) {
+        if(current == root)
+          root = current.getRight();
+      }
+  }
+  
 /** 
  Prints the node values in the "inorder" order.  
 */ 
@@ -106,7 +147,7 @@ public int size(Node node) {
   if (node == null) {
     return(0); 
   }else { 
-    return(size(node.getLeft()) + 1 + size(node.getRight())); 
+    return(size(node.getLeft()) + size(node.getRight()) + 1); 
   } 
 } 
 
