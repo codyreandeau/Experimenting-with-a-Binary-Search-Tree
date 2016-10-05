@@ -109,4 +109,21 @@ public int size(Node node) {
     return(size(node.getLeft()) + 1 + size(node.getRight())); 
   } 
 } 
+
+/**
+ * See if the tree contatins
+ * a specified element
+ */
+public boolean contains(int data, Node node) {
+  
+ if(node==null) {
+  return false;
+ } else if(data == node.getData()) {
+    return true;
+  } else if (data < node.getData()) {
+    return contains(data, node.getLeft());
+  } else {
+    return contains(data, node.getRight());
+  }
+  }
 }

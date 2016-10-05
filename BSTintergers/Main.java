@@ -24,5 +24,6 @@ public class Main {
     System.out.println("The max depth of the tree is: " + tree.maxDepth(BST.root));
     System.out.println("The max value in the tree is: " + tree.maxValue(BST.root));
     System.out.println("The min value in the tree is: " + tree.minValue(BST.root));
+    System.out.println("Is there a 4 in the tree? " + tree.contains(4, BST.root));
   }
 }
