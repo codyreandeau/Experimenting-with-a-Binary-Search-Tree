@@ -57,10 +57,25 @@ public class BST {
         }
       }
       
-      else if(current.getRight() == null) {
+      //If we have a case where just the right child is null
+     else if(current.getRight() == null) {
         if(current == root)
-          root = current.getRight();
+          root = current.getLeft();
+      } else if (isLeft) {
+        parent.setLeft(current.getLeft());
+      } else {
+        parent.setRight(current.getLeft());
       }
+      if(current.getLeft() == null) {
+        if(current == root){
+          root = current.getRight();
+        }else if(isLeft){
+          parent.setLeft(current.getRight());
+        } else {
+          parent.setRight(current.getRight());
+        }
+  }
+      return true;
   }
   
 /** 
