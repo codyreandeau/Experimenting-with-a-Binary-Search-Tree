@@ -76,6 +76,9 @@ public int maxDepth(Node node) {
   }
 }
 
+/** 
+ Finds the largest value in the tree
+*/ 
 public int maxValue(Node node) {
   Node current = node;
   while(current.getRight() != null) {
@@ -84,6 +87,9 @@ public int maxValue(Node node) {
   return current.getData();
  }
 
+/** 
+ Finds the smallest value in the tree
+*/ 
 public int minValue(Node node) {
   Node current = node;
   while(current.getLeft() != null) {
@@ -91,4 +97,16 @@ public int minValue(Node node) {
   }
   return current.getData();
  }
+
+/** 
+ Adds up how many elements are in the 
+ tree. This is the 'size' of the tree.
+*/ 
+public int size(Node node) { 
+  if (node == null) {
+    return(0); 
+  }else { 
+    return(size(node.getLeft()) + 1 + size(node.getRight())); 
+  } 
+} 
 }

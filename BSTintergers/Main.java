@@ -20,6 +20,7 @@ public class Main {
     System.out.println("Print items out using preOrder method:");
     tree.preOrder(BST.root);
     System.out.println();
+    System.out.println("The size of the tree is: " + tree.size(BST.root));
     System.out.println("The max depth of the tree is: " + tree.maxDepth(BST.root));
     System.out.println("The max value in the tree is: " + tree.maxValue(BST.root));
     System.out.println("The min value in the tree is: " + tree.minValue(BST.root));
