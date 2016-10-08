@@ -28,6 +28,7 @@ public class BST {
     boolean isLeft = true;
     
     while(current.getData() != data) {
+      //parent node stays one node behind current
       parent = current;
     
       //Check if our node is on the left or right 
@@ -66,6 +67,8 @@ public class BST {
       } else {
         parent.setRight(current.getLeft());
       }
+      
+      //If we have a case where just the left child is null
       if(current.getLeft() == null) {
         if(current == root){
           root = current.getRight();
@@ -74,8 +77,42 @@ public class BST {
         } else {
           parent.setRight(current.getRight());
         }
+      }
+        
+      //If we are faced with two child nodes 
+        else {
+          
+          Node replace = getReplaceNode(current);
+          
+          if(current == root) {
+            root = replace;
+          } else if (isLeft) {
+            parent.setLeft(replace);
+          } else {
+            parent.setRight(replace);
+          }
+          
+          replace.setLeft(current.getLeft());
   }
       return true;
+  }
+  
+  public Node getReplaceNode(Node replace) {
+    Node replaceParent = replace;
+    Node replacement = replace;
+    Node current = replace.getRight();
+    
+    //execute until no more left children
+    while (current!= null) {
+      replaceParent = replace;
+      replacement = current;
+      current = current.getLeft();
+    }
+     if(replacement != replace.getRight()) {
+       replaceParent.setLeft(replacement.getRight());
+       replacement.setRight(replace.getRight());
+      }
+        return replacement;     
   }
   
 /** 
